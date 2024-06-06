@@ -1,1 +1,21 @@
-/* */
+*
+*::after,
+*::before{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+.navbar {
+    & img[alt='logo'] {
+        width: 5rem;
+    }
+}
+/* all images */
+img {
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+}
