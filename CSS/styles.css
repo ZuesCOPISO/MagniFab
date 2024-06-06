@@ -8,6 +8,17 @@
 ::-webkit-scrollbar{
     display: none;
 }
+/* display-drig */
+body {
+    display: grid;
+}
+/* coloumns */
+
+/* no of rows */
+body {
+    grid-template-rows: auto minmax(100%, 100dvh) auto;
+}
+/* navbar */
 .navbar {
     & img[alt='logo'] {
         width: 5rem;
@@ -21,6 +32,6 @@ img {
 }
 
 /* text align center */
-:is(h2) {
+:is(h2, footer p) {
     text-align: center;
 }
