@@ -32,6 +32,6 @@ img {
 }
 
 /* text align center */
-:is(h2) {
+:is(h2, footer p) {
     text-align: center;
 }
