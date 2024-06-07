@@ -1,76 +1,85 @@
-//create products and store on local storage
-
-let wrapper = document.querySelector("[recentProducts ]");
-let products = JSON.parse(localStorage.getItem("products"))
-  ? JSON.parse(localStorage.getItem("products"))
-  : localStorage.setItem(
-      "products",
-      JSON.stringify([
-        {
-          id: 1,
-          product: "dell latitude",
-          category: "laptop",
-          description:
-            "dell latitude e5450 i3 5th gen 1 for business. RAM: 8GB",
-          amount: 20000,
-          image_url:
-            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSJncxZlLcqrLGKCNqiDmppJXksg9LMCWPi0z9M1awpCnCUANXP-TF7x5sCMW2EnKvxkcTl5QP3Rw8HByk65OinJ21MBwCAOdWtxuVbQS8&usqp=CAc",
-        },
-        {
-          id: 2,
-          product: "dell latitude",
-          category: "laptop",
-          description:
-            "dell latitude e5450 i3 5th gen 1 for business. RAM: 8GB",
-          amount: 20000,
-          image_url:
-            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSJncxZlLcqrLGKCNqiDmppJXksg9LMCWPi0z9M1awpCnCUANXP-TF7x5sCMW2EnKvxkcTl5QP3Rw8HByk65OinJ21MBwCAOdWtxuVbQS8&usqp=CAc",
-        },
-        {
-          id: 3,
-          product: "dell latitude",
-          category: "laptop",
-          description:
-            "dell latitude e5450 i3 5th gen 1 for business. RAM: 8GB",
-          amount: 20000,
-          image_url:
-            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSJncxZlLcqrLGKCNqiDmppJXksg9LMCWPi0z9M1awpCnCUANXP-TF7x5sCMW2EnKvxkcTl5QP3Rw8HByk65OinJ21MBwCAOdWtxuVbQS8&usqp=CAc",
-        },
-        {
-          id: 4,
-          product: "dell latitude",
-          category: "laptop",
-          description:
-            "dell latitude e5450 i3 5th gen 1 for business. RAM: 8GB",
-          amount: 20000,
-          image_url:
-            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSJncxZlLcqrLGKCNqiDmppJXksg9LMCWPi0z9M1awpCnCUANXP-TF7x5sCMW2EnKvxkcTl5QP3Rw8HByk65OinJ21MBwCAOdWtxuVbQS8&usqp=CAc",
-        },
-        {
-          id: 5,
-          product: "dell latitude",
-          category: "laptop",
-          description:
-            "dell latitude e5450 i3 5th gen 1 for business. RAM: 8GB",
-          amount: 20000,
-          image_url:
-            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSJncxZlLcqrLGKCNqiDmppJXksg9LMCWPi0z9M1awpCnCUANXP-TF7x5sCMW2EnKvxkcTl5QP3Rw8HByk65OinJ21MBwCAOdWtxuVbQS8&usqp=CAc",
-        },
-      ])
-    );
-
+// Create products and store it on the local storage
+let wrapper = document.querySelector('[recentProducts]')
+let products =
+    JSON.parse(localStorage.getItem('products'))
+        ? JSON.parse(localStorage.getItem('products'))
+        : localStorage.setItem('products',
+            JSON.stringify(
+                [
+                    {
+                        id: 1,
+                        productName: "Dell-Latitude",
+                        category: "Laptop",
+                        description: "Dell Latitude E5450 i3 5th GEN 1 for business. RAM 8GB, HDD 1TB",
+                        amount: 20000.89,
+                        img_url: "https://i.postimg.cc/65tcMqdc/Dell-Latitude-E5450-i3-5th-GEN-1-for-business-10000.jpg"
+                    },
+                    {
+                        id: 2,
+                        productName: "Todo App",
+                        category: "Application",
+                        description: "Allow you to create, edit, delete, task including sorting tasks by ascending",
+                        amount: 30000.89,
+                        img_url: "https://codjoelmayer.github.io/allImages/images/todoapp.png"
+                    },
+                    {
+                        id: 3,
+                        productName: "Python Programming",
+                        category: "Book",
+                        description: "Python Programming for Beginners",
+                        amount: 990.99,
+                        img_url: "https://i.postimg.cc/rFcbKX5p/Python-Programming-for-Beginners-cover.jpg"
+                    },
+                    {
+                        id: 4,
+                        productName: "C++",
+                        category: "Book",
+                        description: "Mastering C++ Programming",
+                        amount: 1000,
+                        img_url: "https://i.postimg.cc/Ss9zrpfT/Mastering-C-Programming.jpg"
+                    },
+                    {
+                        id: 5,
+                        productName: "HP Elite",
+                        category: "Laptop",
+                        description: "HP Elite Book Intel Core i5 1135G7 SSD 256GB  RAM 8GB",
+                        amount: 15000,
+                        img_url: "https://i.postimg.cc/7Y83v1PB/HPElite-Book-Intel-Core-i5-1135-G7-256-GBSSD-8-GB.png"
+                    }
+                ]
+            )
+        )
+// Current year
+document.querySelector('[currentYear]').textContent =
+    new Date().getUTCFullYear()
 function recentProducts() {
-  let arrSize = products.length;
-  let latestProducts = products.reverse().slice(0, arrSize >> 1);
-  latestProducts.forEach((product) => {
-    wrapper.innerHTML += `
-    <div class="card" style="width: 18rem;">
-    <img src="${product.image_url} class="card-img-top" alt="${product.productName}" loading= lazy>
-    <div class="card-body">
-      <h5 class="card-title"> ${product.productName}</h5>
-      <p class="card-text">${product.description}</p> 
-    </div>
-  </div>`;
-  });
+    try {
+        let arrSize = products.length
+        let latestProducts = products.reverse().slice(0, arrSize >> 1)
+        latestProducts.forEach(product => {
+            wrapper.innerHTML += `
+        <div class="card">
+            <img src="${product.img_url}" class="card-img-top" alt="${product.productName}" loading='lazy'>
+            <div class="card-body">
+                <h5 class="card-title">${product.productName}</h5>
+                <p class="card-text">${product.description}</p>
+            </div>
+        </div>
+    `
+        })
+    } catch (e) {
+        wrapper.textContent = "Please contact our administrator"
+        setTimeout(() => {
+            location.reload()
+        },
+            2000
+        )
+    }
 }
-recentProducts();
+recentProducts()
+// Counter
+window.onload = () => {
+    document.querySelector('[counter]').textContent = JSON.parse(localStorage.getItem('checkout'))
+        ? JSON.parse(localStorage.getItem('checkout')).length
+        : 0
+}
